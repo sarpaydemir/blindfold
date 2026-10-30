@@ -59,8 +59,7 @@ is ever deleted.*
    technical failure is not a result (RULES 21). Do not carry on as if the
    record were safe.
 
-   When printing git output, never print the remote URL: the token is embedded
-   in it. Filter it:
+   When printing git output, mask anything credential-shaped:
    `git push origin main 2>&1 | sed -E 's/github_pat_[A-Za-z0-9_]+/***/g'`
 
 ## What must go into an entry

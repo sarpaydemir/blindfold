@@ -30,7 +30,7 @@ mkdir -p reports 2>/dev/null
 if git push origin main >/dev/null 2>&1; then
   printf '%s  push ok\n' "$TS" >> reports/git-push.log 2>/dev/null
 else
-  # Never print the remote URL: the token is embedded in it.
+  # Log only the outcome, never git's output.
   printf '%s  PUSH FAILED - commit is local only\n' "$TS" >> reports/git-push.log 2>/dev/null
 fi
 
