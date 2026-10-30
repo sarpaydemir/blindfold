@@ -1,0 +1,59 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(//home/user/freqtrade_hyperopt/**)",
+      "Read(//home/user/freqtrade_hyperopt/CLAUDE.md)",
+      "Read(//home/user/freqtrade_hyperopt/AGENTS.md)",
+      "Read(//home/user/freqtrade_hyperopt/EVAL_RULES.md)",
+      "Read(//home/user/freqtrade_hyperopt/GOAL.md)",
+      "Read(//home/user/freqtrade_hyperopt/SORULAR.md)",
+      "Read(//home/user/freqtrade_hyperopt/STATUS.md)",
+      "Read(//home/user/freqtrade_hyperopt/TASK.md)",
+      "Read(//home/user/freqtrade_hyperopt/TASK_LINKER.md)",
+      "Read(//home/user/freqtrade_hyperopt/report.md)",
+      "Read(//home/user/freqtrade_hyperopt/result.txt)",
+      "Read(//home/user/freqtrade_hyperopt/durum.sh)",
+      "Read(//home/user/freqtrade_hyperopt/lab/**)",
+      "Read(//home/user/freqtrade_hyperopt/research/**)",
+      "Read(//home/user/freqtrade_hyperopt/research_factory/**)",
+      "Read(//home/user/freqtrade_hyperopt/docs/**)",
+      "Read(//home/user/freqtrade_hyperopt/tests/**)",
+      "Read(//home/user/freqtrade_hyperopt/user_data/**)",
+      "Read(//home/user/freqtrade_hyperopt/.claude/**)",
+      "Read(//home/user/freqtrade_hyperopt/.research_factory/**)",
+      "Read(//home/user/.claude/projects/**)",
+      "Read(//home/user/.claude/projects/-home-user-freqtrade-hyperopt/**)"
+    ]
+  },
+  "enabledPlugins": {
+    "duckdb-skills@claude-plugins-official": true,
+    "quantitative-trading@claude-code-workflows": true
+  },
+  "autoMemoryDirectory": "/home/user/balikcil/.claude/memory",
+  "claudeMdExcludes": [
+    "/home/user/freqtrade_hyperopt/CLAUDE.md"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Write|Edit|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/wall.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/autocommit.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

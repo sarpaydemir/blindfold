@@ -1,0 +1,3 @@
+- [User is an observer, do not ask questions](user-is-observer-no-questions.md) — only a wall leak or a broken rule reaches them.
+- [Commit subjects are a broadcast](commit-subjects-are-broadcast.md) — every agent sees them; keep them neutral timestamps.
+- [Never relay scan-matched words](exam-names-never-relayed.md) — some exam coin base names are ordinary words; record only pass/fail.
