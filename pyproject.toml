@@ -1,0 +1,36 @@
+[project]
+name = "blindfold"
+version = "0.1.0"
+description = "A multi-agent lab that keeps its agents blind: hook-enforced walls, blind exams, three jurors and a referee, and a ledger of its own leaks."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Sarp Aydemir" }]
+# The scripts use the standard library only. The lab ran them on CPython 3.14.4.
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff", "pytest"]
+
+[tool.uv]
+# Scripts and a test suite, not an installable package.
+package = false
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Pyflakes plus pycodestyle errors, pinned so newer ruff defaults don't change CI.
+select = ["E4", "E7", "E9", "F"]
+# The lab's scripts are kept byte for byte as they ran, because a script's SHA-256
+# is part of the run numbers it wrote (RULES 29). Two style rules they break
+# (single-letter `l`, lambda assignment) are ignored rather than fixed.
+ignore = ["E731", "E741"]
+
+[tool.ruff.lint.per-file-ignores]
+# Unused imports, kept for the same reason.
+"scripts/08_external_sources.py" = ["F401"]
+"scripts/10_verify_cards.py" = ["F401"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,22 @@
+# environment and secrets
+.env
+.venv/
+.claude/settings.local.json
+
+# caches
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.pytest_cache/
+
+# the lab's working folders: data and everything derived from it stay out
+data/
+cards/
+notes/
+canteen/
+exam/
+exam-prep/
+external/
+reports/
+open-questions/
+LEDGER.md
