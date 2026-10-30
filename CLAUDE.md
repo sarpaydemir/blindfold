@@ -52,20 +52,14 @@ column names, file paths, script names, run numbers.
 
 ## Hooks — enforced by the harness, not by memory
 
-Two hooks in `.claude/settings.json`, scripts in `.claude/hooks/`:
+Hooks live in `.claude/hooks/`; `.claude/settings.json` enables the wall:
 
 - **`wall.sh`** (`PreToolUse` on `Bash`) refuses any command reaching for the
   old project or for past session logs. This closes the command-line hole RULES
   5 admits. It is deliberately narrow — it blocks specific paths, not everything
   outside the folder, so an unattended run does not stall on a false positive.
-- **`autocommit.sh`** (`Stop`) commits and pushes the working tree at the end of
-  every turn. During an unattended run nobody is watching, so durability does
-  not depend on the coordinator remembering to commit. Push results are appended
-  to `reports/git-push.log`; a failed push leaves the commit local and is logged,
-  never silently swallowed.
+- **`autocommit.sh`** (`Stop`, disabled in this public copy) committed the working tree at the end of every turn during the original unattended runs, so durability did not depend on the coordinator remembering to commit.
 
-Never print the `origin` URL: a token is embedded in it. Filter git output with
-`sed -E 's/github_pat_[A-Za-z0-9_]+/***/g'`.
 
 ## Skills
 

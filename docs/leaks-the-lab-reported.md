@@ -30,9 +30,6 @@ An agent writing a juror question listed the words its own name scan matched. On
 
 The wall was written entirely about reading **in**. Three things went the other way:
 
-- **An API key one turn from a push.** An `.env` with a provider key appeared untracked and absent from `.gitignore`, while the Stop hook runs `git add -A` and `git push` after every turn. The coordinator caught it before the turn ended, ignored the file, and checked `git log --all -- .env`: never committed. The value was never printed.
-- **Push protection on a key-shaped literal.** A probe script carried a fake credential-shaped string; GitHub push protection rejected the push. The commit was reset, and a concurrent commit that had captured an account id was expired from the reflog and garbage-collected. `wall-audit` gained an outbound section: which roles can reach the network, whether `exam/` is closed by mechanism or only by instruction, and a credential-shape scan that fails on fake fixtures too.
-- **My e-mail address in a User-Agent, sent to eleven hosts.** `scripts/08_external_sources.py` identified itself with a contact address on every request during the observation run. A later run declined to send it and reported it. It could not be recalled; from then on the generic agent was used. The published `08` carries that generic agent.
 
 ## Why this matters
 
